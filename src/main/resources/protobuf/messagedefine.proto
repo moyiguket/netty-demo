@@ -1,0 +1,28 @@
+
+// [START declaration]
+syntax = "proto3";
+import "enum.proto";
+package com.sd.study.netty.messages.proto;
+// [END declaration]
+
+
+// [START java_declaration]
+option java_multiple_files = true;
+// [END java_declaration]
+
+
+//Request,Response,Notification,Command
+// [START messages]
+
+    message MsgHead{
+        MsgType magicNumber = 1;
+        MsgType msgType = 2;
+        int32 bodyLength = 3;
+    }
+
+    message MsgWrapper{
+        MsgHead msgHead = 1;
+        bytes body  = 2;
+        bytes delimiter = 3;
+    }
+// [END messages]

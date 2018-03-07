@@ -1,0 +1,47 @@
+
+// [START declaration]
+syntax = "proto3";
+import "enum.proto";
+package com.sd.study.netty.messages.proto;
+// [END declaration]
+
+
+// [START java_declaration]
+option java_multiple_files = true;
+// [END java_declaration]
+
+
+//Request,Response,Notification,Command
+// [START messages]
+
+    message LoginAsk{
+        string username = 1;
+        string password = 2;
+    }
+
+    message LoginAck{
+        StatusCode statusCode = 1;
+        string failedReason = 2;
+    }
+
+    message WhoAmI{
+        string userIdentify = 1;
+    }
+
+    message ConnectedAck{
+        StatusCode statusCode = 1;
+        string content=2;
+    }
+
+
+    message ChatFriendAsk{
+        string sender = 1;
+        string receiver = 2;
+        string content = 3;
+    }
+
+    message ChatFriendAck{
+        StatusCode statusCode = 1;
+    }
+
+// [END messages]

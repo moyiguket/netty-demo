@@ -1,0 +1,47 @@
+// See README.txt for information and build instructions.
+//
+// Note: START and END tags are used in comments to define sections used in
+// tutorials.  They are not part of the syntax for Protocol Buffers.
+//
+// To get an in-depth walkthrough of this file and the related examples, see:
+// https://developers.google.com/protocol-buffers/docs/tutorials
+
+// [START declaration]
+syntax = "proto3";
+package com.sd.study.netty.messages.proto;
+// [END declaration]
+
+// [START java_declaration]
+option java_multiple_files = true;
+// [END java_declaration]
+
+
+//Request,Response,Notification,Command
+// [START messages]
+enum MsgType {
+
+    CODE_UNKNOWN = 0;
+
+    CODE_MAGIC_NUMBER = 0x0000bbaa;
+
+    CODE_LOGIN_ASK = 0x00001001;//登录请求
+    CODE_LOGIN_ACK = 0x00001002;
+
+    CODE_CHAT_FRIEND_ASK = 0x00001003;//朋友聊天
+    CODE_CHAT_FRIEND_ACK = 0x00001004;
+
+    CODE_CHAT_GROUP_ASK = 0x00001005;//群组聊天
+    CODE_CHAT_GROUP_ACK = 0x00001006;
+
+    CODE_WHO_AM_I_ASK = 0x00002001;//连接上报
+    CODE_CONN_BINDING_ACK = 0x00002002;
+}
+
+enum StatusCode{
+    STATUS_UNKNOWN = 0;
+
+    STATUS_USER_PASSWORD_CHECK_PASS = 0x10001000;//用户名密码校验成功
+    STATUS_USER_PASSWORD_CHECK_FAILED = 0x10001001;//校验失败
+
+}
+// [END messages]
